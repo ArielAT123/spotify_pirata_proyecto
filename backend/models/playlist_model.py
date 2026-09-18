@@ -1,7 +1,6 @@
-from sqlalchemy import Column, Integer, String
-from database import Base
-from user.model.py import Usuario
-
+from sqlalchemy import Column, Integer, String, Table, ForeignKey
+from sqlalchemy.orm import relationship
+from database.init import Base
 detalle_playlist = Table(
     "det_playlist",
     Base.metadata,
@@ -13,8 +12,8 @@ class Playlist(Base):
     __tablename__ = "playlist"
     id_playlist = Column(Integer, primary_key=True, index=True)
     nombre= Column(String, index=True)
-    user_id = Column(Integer, ForeignKey("usuario.id")
-    det_playlist = relationship("det_playlist", secondary=detalle_playlist, back_populates="playlist")
-)
+    user_id = Column(Integer, ForeignKey("usuario.id"))
+    det_playlist = relationship("Musica", secondary=detalle_playlist)
+
 
 
