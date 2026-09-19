@@ -11,6 +11,8 @@ async def get_musica_by_name(db: AsyncSession, nombre_musica:str) -> Musica | No
 
 async def get_all_music(db: AsyncSession) -> list[Musica]:
     result = await db.execute(select(Musica))
+    if not result:
+        return []
     return list(result.scalars().all())
 
 async def create_music(db: AsyncSession, datos: MusicaCreate) -> Musica:
