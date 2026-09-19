@@ -17,6 +17,7 @@ class UsuarioCreate(BaseModel):
 # Lo que el cliente puede enviar para actualizar (todo opcional)
 class UsuarioUpdate(BaseModel):
     nombre: str | None = None
+    username: str | None = None
 
 # Lo que la API devuelve al cliente
 class UsuarioResponse(BaseModel):

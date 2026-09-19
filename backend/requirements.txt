@@ -2,7 +2,8 @@
 fastapi>=0.115.0
 uvicorn[standard]>=0.30.0
 
-# Settings & Environment
+# Schemas, Settings & Environment
+pydantic>=2.9.0
 pydantic-settings>=2.4.0
 python-dotenv>=1.0.1
 
