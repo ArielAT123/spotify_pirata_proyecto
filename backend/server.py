@@ -9,3 +9,7 @@ app.include_router(music_router, prefix="/api")
 @app.get("/health")
 def health():
     return {"mensaje": "Alive"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("server:app", host="0.0.0.0", port=8100, reload=True)
